@@ -11,10 +11,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "shopping_table")
 @NamedQuery(name = "findByProductId", query = "Select se from ShoppingEntity se where se.productId= :productId")
-@NamedQuery(name="findAll", query="Select se from ShoppingEntity se")
-@NamedQuery(name="findProductNameByCategory", query="Select se.productName from ShoppingEntity se where se.category= :category")
-@NamedQuery(name = "findProductNameByPrice", query = "Select se.price from ShoppingEntity se where se.price = :setPrice")
-@NamedQuery(name="findCategoryByisAvailable", query="Select se.isAvailable from ShoppingEntity se where se.isAvailable= :setIsAvailable")
+@NamedQuery(name = "findAll", query = "Select se from ShoppingEntity se")
+@NamedQuery(name = "findProductNameByCategory", query = "Select se.productName from ShoppingEntity se where se.category= :category")
+@NamedQuery(name = "findProductNameByPrice", query = "Select se.price from ShoppingEntity se where se.price = :price")
+@NamedQuery(name = "findCategoryByisAvailable", query = "Select se.isAvailable from ShoppingEntity se where se.isAvailable= :isAvailable")
+@NamedQuery(name = "findQuantityByProductName", query = "select se.quantity from ShoppingEntity se where se.productName= :productName")
 public class ShoppingEntity {
 
 	@Id

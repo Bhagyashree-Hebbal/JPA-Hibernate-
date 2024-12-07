@@ -14,10 +14,10 @@ public class ShoppingQueryRunner4 {
 		EntityTransaction et = em.getTransaction();
 
 		Query query = em.createNamedQuery("findProductNameByPrice");
-		query.setParameter("getCategory", "Electronics");
+		query.setParameter("price", 55000.00);
 		Object object = query.getSingleResult();
-		String string = (String) object;
-		System.out.println("Value of the Professor Id :" + string);
+		Double ref = (Double) object;
+		System.out.println("Value of the Professor Id :" + ref);
 
 	}
 
