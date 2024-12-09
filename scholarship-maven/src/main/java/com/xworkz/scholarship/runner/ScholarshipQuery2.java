@@ -13,10 +13,26 @@ public class ScholarshipQuery2 {
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction et = em.getTransaction();
 
-		Query query = em.createNamedQuery("updateByPhoneAndAlive");
-		query.setParameter("phone", 9874562225L);
-		query.setParameter("alive", "true");
-		int result = query.executeUpdate();
+		try {
+			et.begin();
+			Query query = em.createNamedQuery("updateByPhoneAndAlive");
+			query.setParameter("email", "guna@gmail.com");
+			query.setParameter("phone", 9874563225L);
+			query.setParameter("alive", true);
+			int result = query.executeUpdate();
+			if (result > 0) {
+				System.out.println("updated");
+
+			} else {
+				System.out.println("not updated");
+			}
+			et.commit();
+		} catch (Exception e) {
+			e.getMessage();
+		} finally {
+			em.close();
+			emf.close();
+		}
 
 	}
 

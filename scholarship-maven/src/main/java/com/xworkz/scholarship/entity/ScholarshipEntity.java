@@ -13,13 +13,14 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "scholarship_table")
 @NamedQuery(name = "updateByEmailAndPhone", query = "update ScholarshipEntity se set se.course = :course where se.email= :email and se.phone= :phone")
-//@NamedQuery(name="updateByPhoneAndAlive", query= "update Scholarship se set se.email= :email where se.alive = :alive and se.phone = :phone")
+@NamedQuery(name="updateByPhoneAndAlive", query= "update ScholarshipEntity se set se.email= :email where se.alive = :alive and se.phone = :phone")
 @NamedQuery(name="getAll",query = "select se from ScholarshipEntity se")
-@NamedQuery(name = "getNameAndEmailById", query = "Select se.name and se.email from ScholarshipEntity se where se.id= :id")
-@NamedQuery(name="getCountByAge" ,query="select count(se) from ScholarshipEntity se where se.age> :age")
-@NamedQuery(name="getNameAndEmailAndPhoneAndById" ,query="select se.name and se.email and se.phone where se.id= :id")
-@NamedQuery(name="getAllByEmailAndPh",query="select se from ScholarshipEntity se where se.email= :email and se.email= :email")
-@NamedQuery(name="deleteByName&Age",query="delete from ScholarshipEntity se where se.name= :name and se.age= :age")
+@NamedQuery(name = "getNameAndEmailById", query = "Select se.name, se.email from ScholarshipEntity se where se.id= :id")
+@NamedQuery(name="getCountByEmailAndDate",query="select count(se) from ScholarshipEntity se where se.email= :email and se.registrationDate= :registrationDate")
+@NamedQuery(name="getCountByAge" ,query="select count(se) from ScholarshipEntity se where se.age > :age")
+@NamedQuery(name="getNameAndEmailAndPhoneById" ,query="select se.name, se.email , se.phone from ScholarshipEntity se where se.id= :id")
+@NamedQuery(name="getAllByEmailAndPh",query="select se from ScholarshipEntity se where se.email= :email and se.phone= :phone")
+@NamedQuery(name="deleteByNameAndAge",query="delete from ScholarshipEntity se where se.name= :name and se.age= :age")
 
 public class ScholarshipEntity {
 	@Id

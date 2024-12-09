@@ -16,16 +16,22 @@ public class ScholarshipQuery1 {
 		try {
 			et.begin();
 			Query query = em.createNamedQuery("updateByEmailAndPhone");
-			query.setParameter("email", "mayar99@gmail.com");
-			query.setParameter("phone", 9874562225L);
+			query.setParameter("email", "riyak12@gmail.com");
+			query.setParameter("phone", 9874563227L);
 			query.setParameter("course", "Business Administration");
 			int result = query.executeUpdate();
+			if (result > 0) {
+				System.out.println("updated");
+			} else {
+				System.out.println("not updated");
+			}
 			et.commit();
 		} catch (Exception e) {
+			if (et.isActive()) {
+				et.rollback();
+			}
 			e.printStackTrace();
 		} finally {
-			if (et.isActive())
-				et.rollback();
 			em.close();
 			emf.close();
 		}

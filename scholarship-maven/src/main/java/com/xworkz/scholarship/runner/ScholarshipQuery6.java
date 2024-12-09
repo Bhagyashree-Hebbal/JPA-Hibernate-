@@ -15,7 +15,7 @@ public class ScholarshipQuery6 {
 
 		Query query = em.createNamedQuery("getCountByAge");
 		query.setParameter("age", 21);
-		Integer age = (Integer)query.getSingleResult();
+		Long age = (Long)query.getSingleResult();
 		System.out.println("Age count is: "+age);
 	}
 

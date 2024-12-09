@@ -1,5 +1,8 @@
 package com.xworkz.scholarship.runner;
 
+import java.util.Iterator;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -13,12 +16,18 @@ public class ScholarshipQuery7 {
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction et = em.getTransaction();
 
-		Query query = em.createNamedQuery("getNameAndEmailAndPhoneAndById");
-		query.setParameter("name", "Vivan");
-		query.setParameter("email", "vivana56@gmail.com");
-		query.setParameter("phone", 9874563226L);
-		Integer age = (Integer) query.getSingleResult();
-		System.out.println("Age count is: " + age);
+		Query query = em.createNamedQuery("getNameAndEmailAndPhoneById");
+	
+		query.setParameter("id", 12);
+		List<Object[]> obj =query.getResultList();
+		for (Object[] objects : obj) {
+			System.out.println(objects[0]);
+			System.out.println(objects[1]);
+			System.out.println(objects[2]);
+			
+		}
+		
+		
 
 	}
 

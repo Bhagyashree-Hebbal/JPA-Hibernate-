@@ -16,13 +16,13 @@ public class ScholarshipQuery4 {
 		EntityTransaction et = em.getTransaction();
 
 		Query query = em.createNamedQuery("getNameAndEmailById");
-		query.setParameter("setId", 5);
-		int result = query.executeUpdate();
-
+		query.setParameter("id", 5);
+		
 		List<Object[]> li = query.getResultList();
 		for (Object[] obj : li) {
 			System.out.println("Name: " + obj[0] + " " + "Email: " + obj[1]);
 		}
+		
 
 	}
 
