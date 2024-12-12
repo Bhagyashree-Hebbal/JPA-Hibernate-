@@ -12,5 +12,5 @@ public interface BookstoreService {
 
 	String getTypeByPrice(int price);
 
-	String getAuthorAndType(String type);
+	String getAuthorByBookId(int bookId);
 }

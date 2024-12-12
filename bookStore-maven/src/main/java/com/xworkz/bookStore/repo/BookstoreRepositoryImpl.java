@@ -96,7 +96,7 @@ public class BookstoreRepositoryImpl implements BookstoreRepository {
 	}
 
 	@Override
-	public String getAuthorAndType(String type) {
+	public String getAuthorByBookId(int bookId) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("bookstore");
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction et = em.getTransaction();

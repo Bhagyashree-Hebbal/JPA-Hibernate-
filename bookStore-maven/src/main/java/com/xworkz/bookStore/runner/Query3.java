@@ -1,5 +1,7 @@
 package com.xworkz.bookStore.runner;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -17,8 +19,11 @@ public class Query3 {
 			et.begin();
 			Query query = em.createNamedQuery("getTypeByPrice");
 			query.setParameter("price", 250);
-			Double price = (Double) query.getSingleResult();
-			System.out.println("price is: "+price);
+			List<Object[]> list = (List<Object[]>) query.getSingleResult();
+			for (Object[] objects : list) {
+				System.out.println(objects);
+			}
+
 			et.commit();
 
 		} catch (Exception e) {

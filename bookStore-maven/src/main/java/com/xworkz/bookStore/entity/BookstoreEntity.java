@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @NamedQuery(name = "getTitleById", query = "select be.title from BookstoreEntity be where be.id= :id")
 @NamedQuery(name = "getTitleByAuthor", query = "select be.title from BookstoreEntity be where be.author= :author")
 @NamedQuery(name = "getTypeByPrice", query = "select be.type from BookstoreEntity be where be.price = :price")
-@NamedQuery(name = "getAuthor&Type", query = "select be.author from BookstoreEntity be where be.id= :id and be.type= :type")
+@NamedQuery(name = "getAuthorByBookId", query = "select be.author from BookstoreEntity be where be.bookId= :bookId")
 public class BookstoreEntity {
 
 	@Id
@@ -26,6 +26,10 @@ public class BookstoreEntity {
 	private String type;
 	private double price;
 
+	public BookstoreEntity() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public BookstoreEntity(int bookId, String title, String author, String type, double price) {
 		super();
 		this.bookId = bookId;

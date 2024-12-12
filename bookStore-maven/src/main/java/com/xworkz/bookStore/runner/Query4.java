@@ -15,10 +15,10 @@ public class Query4 {
 
 		try {
 			et.begin();
-			Query query = em.createNamedQuery("getAuthor&Type");
-			query.setParameter("type", "Kuvempu");
-			String type = (String) query.getSingleResult();
-			System.out.println("price is: " + type);
+			Query query = em.createNamedQuery("getAuthorByBookId");
+			query.setParameter("bookId", 1054);
+			String bookId = (String) query.getSingleResult();
+			System.out.println(bookId);
 			et.commit();
 
 		} catch (Exception e) {

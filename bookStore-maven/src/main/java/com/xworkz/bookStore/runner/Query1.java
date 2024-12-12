@@ -6,8 +6,6 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import com.xworkz.bookStore.entity.BookstoreEntity;
-
 public class Query1 {
 
 	public static void main(String[] args) {
@@ -19,9 +17,8 @@ public class Query1 {
 			et.begin();
 			Query query = em.createNamedQuery("getTitleById");
 			query.setParameter("id", 5);
-			Object object = query.getSingleResult();
-			BookstoreEntity entity = (BookstoreEntity) object;
-			System.out.println(entity.toString());
+			String str = (String) query.getSingleResult();
+			System.out.println(str);
 			et.commit();
 		} catch (Exception e) {
 			if (et.isActive()) {

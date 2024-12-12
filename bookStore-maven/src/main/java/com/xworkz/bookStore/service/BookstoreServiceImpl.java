@@ -33,9 +33,9 @@ public class BookstoreServiceImpl implements BookstoreService {
 	}
 
 	@Override
-	public String getAuthorAndType(String type) {
+	public String getAuthorByBookId(int bookId) {
 		BookstoreRepository bookstoreRepository = new BookstoreRepositoryImpl();
-		return bookstoreRepository.getAuthorAndType(type);
+		return bookstoreRepository.getAuthorByBookId(bookId);
 	}
 
 }
