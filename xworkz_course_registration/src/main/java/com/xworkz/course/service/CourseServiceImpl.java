@@ -50,8 +50,8 @@ public class CourseServiceImpl implements CourseService{
 
                                 if(phone.length()==10 && phone.startsWith("9")){
                                     System.out.println("valid phoneNumber");
-                                    CourseEntity entity = new CourseEntity();
 
+                                    CourseEntity entity = new CourseEntity();
                                     entity.setName(dto.getName());
                                     entity.setAge(dto.getAge());
                                     entity.setEmail(dto.getEmail());
